@@ -58,7 +58,7 @@ public class UrlShortenerHandler implements
 
         return new APIGatewayProxyResponseEvent()
                 .withStatusCode(200)
-                .withBody("Shortened URL: "+ shortUrl);
+                .withBody("{ url: "+ shortUrl + " }");
     }
 
     private APIGatewayProxyResponseEvent redirectUrl(String shortCode) {
