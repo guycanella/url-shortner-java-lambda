@@ -48,9 +48,9 @@ public class UrlShortenerHandler implements
         Map<String, AttributeValue> item = new HashMap<>();
         item.put("shortCode", AttributeValue.builder().s(code).build());
         item.put("originalUrl", AttributeValue.builder().s(originalUrl).build());
-        item.put("createdAt", AttributeValue.builder().s(String.valueOf(now)).build());
-        item.put("expiresAt", AttributeValue.builder().s(String.valueOf(ttl)).build());
-        item.put("clickCount", AttributeValue.builder().s("0").build());
+        item.put("createdAt", AttributeValue.builder().n(String.valueOf(now)).build());
+        item.put("expiresAt", AttributeValue.builder().n(String.valueOf(ttl)).build());
+        item.put("clickCount", AttributeValue.builder().n("0").build());
 
         dynamoDb.putItem(PutItemRequest.builder().tableName(TABLE_NAME).item(item).build());
 
