@@ -134,7 +134,7 @@ aws dynamodb create-table \
 
 **Custom variables:**
 * CUSTOM_DOMAIN
-* TALBE_NAME
+* TABLE_NAME
 
 ## 🧪 Testing
 
