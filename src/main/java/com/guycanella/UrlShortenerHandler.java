@@ -18,8 +18,8 @@ public class UrlShortenerHandler implements
         RequestHandler<APIGatewayProxyRequestEvent, APIGatewayProxyResponseEvent> {
 
     private final DynamoDbClient dynamoDb = DynamoDbClient.create();
-    private final String TABLE_NAME = "ShortUrls";
-    private final String CUSTOM_DOMAIN = "https://api.shortco.online";
+    private final String TABLE_NAME = System.getenv("TABLE_NAME");
+    private final String CUSTOM_DOMAIN = System.getenv("CUSTOM_DOMAIN");
 
     @Override
     public APIGatewayProxyResponseEvent handleRequest(APIGatewayProxyRequestEvent input, Context context) {
@@ -103,7 +103,7 @@ public class UrlShortenerHandler implements
 
         return new APIGatewayProxyResponseEvent()
                 .withStatusCode(200)
-                .withBody("{ \"url\": \""+ shortUrl + " }");
+                .withBody("{ \"url\": \""+ shortUrl + "\" }");
     }
 
     private APIGatewayProxyResponseEvent redirectUrl(String shortCode, Context context) {
