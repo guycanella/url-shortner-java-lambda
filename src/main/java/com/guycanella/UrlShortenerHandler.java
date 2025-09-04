@@ -96,14 +96,14 @@ public class UrlShortenerHandler implements
 
             return new APIGatewayProxyResponseEvent()
                     .withStatusCode(500)
-                    .withBody("{ \"error\": Failed to create short URL.\" }");
+                    .withBody("{ \"error\": \"Failed to create short URL.\" }");
         }
 
         String shortUrl = CUSTOM_DOMAIN + "/" + code;
 
         return new APIGatewayProxyResponseEvent()
                 .withStatusCode(200)
-                .withBody("{ \"url\": "+ shortUrl + " }");
+                .withBody("{ \"url\": \""+ shortUrl + " }");
     }
 
     private APIGatewayProxyResponseEvent redirectUrl(String shortCode, Context context) {
