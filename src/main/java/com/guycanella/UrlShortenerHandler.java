@@ -38,7 +38,7 @@ public class UrlShortenerHandler implements
     }
 
     private APIGatewayProxyResponseEvent shortenUrl(String originalUrl) {
-        String code = UUID.randomUUID().toString().substring(0, 6);
+        String code = CodeGenerator.generateCode();
 
         long now = Instant.now().getEpochSecond();
         int expires_1min = 60;
