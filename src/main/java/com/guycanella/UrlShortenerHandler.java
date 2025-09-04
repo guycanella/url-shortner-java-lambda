@@ -25,7 +25,7 @@ public class UrlShortenerHandler implements
         String path = input.getPath();
         String method = input.getHttpMethod();
 
-        if (method.equalsIgnoreCase("POST") && path.contains("shortner")) {
+        if (method.equalsIgnoreCase("POST")) {
             return shortenUrl(input.getBody());
         } else if (method.equalsIgnoreCase("GET")) {
             String shortCode = path.substring(path.lastIndexOf('/') + 1);
